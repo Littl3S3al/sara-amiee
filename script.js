@@ -1,10 +1,11 @@
 const timestamp = document.querySelector('.timestamp p');
 const state = document.querySelector('.state p');
 const content = document.querySelector('.content');
+const hiddenContent = document.querySelector('.hidden-content');
+const loader = document.querySelector('.loader');
 
 let sequence = 1;
-
-let isPaused = false;
+let isPaused = true;
 let time = 0;
 
 // array of images
@@ -37,6 +38,10 @@ const identifyScr = (selection) => {
     }
 }
 
+
+
+
+
 // get image randomly from array
 const getImage = (array) => {
     let choice;
@@ -46,6 +51,10 @@ const getImage = (array) => {
 
     return selection;
 };
+
+
+
+
 
 // timer
 const playing = setInterval(() => {
@@ -68,14 +77,10 @@ const playing = setInterval(() => {
                         <source src="assets/${result}" type="video/mp4">
                     </video>
                 `;
-                let lastEl = document.querySelector('.content:last-child');
-                lastEl.style.opacity = '1';
             } else {
                 content.innerHTML = `
                     <img src="assets/${result}" alt="slide show image">
                 `;
-                let lastEl = document.querySelector('.content:last-child');
-                lastEl.style.opacity = '1';
             }
         }
     };
@@ -88,7 +93,25 @@ const playing = setInterval(() => {
 }, 1000)
 
 
+// on load function to bring in all media and then remove loader once finished
+const load = () => {
 
+    media.forEach((item) => {
+        hiddenContent.innerHTML += `
+            <img src="assets/${item}" alt="slide show image">
+        `;
+    })
+
+    window.addEventListener('load', () => {
+        console.log('test');
+        loader.style.opacity = 0;
+        isPaused = false;
+    })
+}
+
+load()
+
+// mouse down and up functionality
 window.addEventListener('mousedown' , () => {
     isPaused = true;
     state.innerText = 'state: paused';

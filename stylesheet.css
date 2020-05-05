@@ -26,14 +26,19 @@
     cursor: pointer; 
 }
 
-.content >  {
-    opacity: 0;
-    transition: opacity 1s;
-}
-
-.test{
+/* loading styles */
+.loader{
+    width: 100vw;
+    height: 100vh;
+    background: black;
     position: fixed;
+    top: 0;
     z-index: 100;
-    top:0;
-    width: 200px;
+    text-align: center;
+    padding: 45vh 0 0 0;
+    transition: opacity 2s;
+}
+.hidden-content{
+    display: none;
+    
 }
