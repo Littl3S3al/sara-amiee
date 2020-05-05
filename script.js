@@ -105,7 +105,7 @@ const load = () => {
     window.addEventListener('load', () => {
         console.log('test');
         loader.style.opacity = 0;
-        isPaused = false;
+        setTimeout(isPaused = false, 1000);
     })
 }
 
