@@ -1,0 +1,39 @@
+*, body {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+.controls{
+    height: 8vh;
+    padding: 20px;
+    background: darkgray
+}
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 92vh;
+}
+.content img, .content video {
+    width: auto;
+    height: 90%;
+    position: fixed; 
+    cursor: pointer; 
+}
+
+.content >  {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.test{
+    position: fixed;
+    z-index: 100;
+    top:0;
+    width: 200px;
+}
